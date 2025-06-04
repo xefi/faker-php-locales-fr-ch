@@ -6,6 +6,11 @@ use Xefi\Faker\Extensions\Extension;
 
 class AddressExtension extends Extension
 {
+    public function getLocale(): string|null
+    {
+        return 'fr_CH';
+    }
+
     protected $provinces = [
         'Vaud', 'Genève', 'Fribourg', 'Neuchâtel', 'Jura', 'Valais', 'Berne', 'Tessin',
     ];

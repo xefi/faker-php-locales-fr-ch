@@ -6,6 +6,11 @@ use Xefi\Faker\Extensions\Extension;
 
 class CompanyExtension extends Extension
 {
+    public function getLocale(): string|null
+    {
+        return 'fr_CH';
+    }
+
     private array $companies = [
         "Migros SA", "Nestlé Suisse SA", "PostFinance AG", "Credit Suisse Group AG",
         "Swisscom SA", "Hôpitaux Universitaires de Genève", "Université de Lausanne",
