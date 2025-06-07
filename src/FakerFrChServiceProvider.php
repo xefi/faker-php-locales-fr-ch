@@ -19,8 +19,8 @@ class FakerFrChServiceProvider extends Provider
             ColorsExtension::class,
             CompanyExtension::class,
             FinancialExtension::class,
-//            PersonExtension::class,
-//            TextExtension::class,
+            PersonExtension::class,
+            TextExtension::class,
         ]);
     }
 }
