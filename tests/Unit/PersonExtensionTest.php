@@ -213,8 +213,7 @@ final class PersonExtensionTest extends TestCase
         $this->assertEquals(
             $expectedCheckDigit,
             $actualCheckDigit,
-            'La clé de contrôle AVS calculée doit correspondre à celle générée.'
+            'The calculated AVS key should correspond to the generated one.'
         );
     }
-
 }

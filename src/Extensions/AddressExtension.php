@@ -51,7 +51,7 @@ class AddressExtension extends Extension
 
     public function postcode(): int
     {
-        return $this->randomizer->getInt(1000, 9658); // vrai code postal suisse : 1000 à ~9658
+        return $this->randomizer->getInt(1000, 9658);
     }
 
     public function houseNumber(): int
