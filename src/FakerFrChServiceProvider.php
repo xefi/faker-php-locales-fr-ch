@@ -14,13 +14,13 @@ class FakerFrChServiceProvider extends Provider
 {
     public function boot(): void
     {
-//        $this->extensions([
-//            AddressExtension::class,
-//            ColorsExtension::class,
-//            CompanyExtension::class,
-//            FinancialExtension::class,
-//            PersonExtension::class,
-//            TextExtension::class,
-//        ]);
+        $this->extensions([
+            AddressExtension::class,
+            ColorsExtension::class,
+            CompanyExtension::class,
+            FinancialExtension::class,
+            PersonExtension::class,
+            TextExtension::class,
+        ]);
     }
 }
