@@ -44,7 +44,7 @@ class PersonExtension extends BasePersonExtension
         return $avs;
     }
 
-    private function swissModulo10Recursive(string $number): int
+    protected function swissModulo10Recursive(string $number): int
     {
         // ISO 7064 Mod 10 Rec
         $table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5];
