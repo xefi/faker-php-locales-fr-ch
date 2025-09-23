@@ -1,10 +1,9 @@
 <?php
 
-namespace Unit;
+namespace Xefi\Faker\FrCh\Tests\Unit;
 
 use Random\Randomizer;
 use Xefi\Faker\FrCh\Extensions\CompanyExtension;
-use Xefi\Faker\FrCh\Tests\Unit\TestCase;
 
 final class CompanyExtensionTest extends TestCase
 {

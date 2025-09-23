@@ -1,11 +1,10 @@
 <?php
 
-namespace Unit;
+namespace Xefi\Faker\FrCh\Tests\Unit;
 
 use Random\Randomizer;
 use ReflectionClass;
 use Xefi\Faker\FrCh\Extensions\TextExtension;
-use Xefi\Faker\FrCh\Tests\Unit\TestCase;
 
 final class TextExtensionTest extends TestCase
 {
