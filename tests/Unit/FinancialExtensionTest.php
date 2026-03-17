@@ -1,9 +1,8 @@
 <?php
 
-namespace Unit;
+namespace Xefi\Faker\FrCh\Tests\Unit;
 
 use Xefi\Faker\Calculators\Iban;
-use Xefi\Faker\FrCh\Tests\Unit\TestCase;
 
 final class FinancialExtensionTest extends TestCase
 {
