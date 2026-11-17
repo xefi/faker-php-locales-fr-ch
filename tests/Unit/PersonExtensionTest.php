@@ -182,37 +182,33 @@ final class PersonExtensionTest extends TestCase
 
     public function testAvsReturnsCorrectFormatUnformatted(): void
     {
-        $avs = $this->faker->avs();
+        for ($i = 0; $i < 100; $i++) {
+            $avs = $this->faker->avs();
 
-        $this->assertMatchesRegularExpression('/^756\d{9}\d$/', $avs, 'AVS should match 756 + 9 digits + 1 control digit');
-        $this->assertEquals(13, strlen($avs), 'AVS should have 13 characters in total');
+            $this->assertMatchesRegularExpression('/^756\d{10}$/', $avs, 'AVS should match 756 + 9 digits + 1 control digit');
+        }
     }
 
     public function testAvsReturnsCorrectFormatFormatted(): void
     {
-        $avs = $this->faker->avs(true);
+        for ($i = 0; $i < 100; $i++) {
+            $avs = $this->faker->avs(true);
 
-        $this->assertMatchesRegularExpression('/^756\.\d{4}\.\d{4}\.\d{2}$/', $avs, 'Formatted AVS should be like 756.XXXX.XXXX.XX');
-        $this->assertEquals(16, strlen($avs), 'Formatted AVS should have 16 characters');
+            $this->assertMatchesRegularExpression('/^756\.\d{4}\.\d{4}\.\d{2}$/', $avs, 'Formatted AVS should be like 756.XXXX.XXXX.XX');
+        }
     }
 
     public function testAvsChecksumIsValid(): void
     {
-        $avs = $this->faker->avs();
+        for ($i = 0; $i < 100; $i++) {
+            $avs = $this->faker->avs();
 
-        $base = substr($avs, 0, -1);
-        $expectedCheckDigit = (int) substr($avs, -1);
+            $sum = 0;
+            foreach (str_split(substr($avs, 0, 12)) as $index => $digit) {
+                $sum += (int) $digit * ($index % 2 === 0 ? 1 : 3);
+            }
 
-        $extension = new PersonExtension(new Randomizer());
-        $reflection = new \ReflectionClass($extension);
-        $method = $reflection->getMethod('swissModulo10Recursive');
-
-        $actualCheckDigit = $method->invoke($extension, $base);
-
-        $this->assertEquals(
-            $expectedCheckDigit,
-            $actualCheckDigit,
-            'The calculated AVS key should correspond to the generated one.'
-        );
+            $this->assertSame((10 - $sum % 10) % 10, (int) substr($avs, -1), 'The AVS check digit should be a valid EAN-13 check digit.');
+        }
     }
 }
